@@ -1,5 +1,6 @@
 node_modules/
 .env
+.env.local
 .DS_Store
 dist/
 build/
@@ -9,3 +10,9 @@ coverage/
 *.log
 .next/
 out/
+
+# Database files
+*.db
+*.db-journal
+*.db-shm
+*.db-wal

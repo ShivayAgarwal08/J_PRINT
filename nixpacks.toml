@@ -1,13 +1,15 @@
-[phases.setup]
-nixPkgs = ["nodejs-22_x", "npm", "openssl"]
+# Railway Configuration
+# This file tells Railway how to build and start your application
 
-[phases.install]
-cmds = ["npm ci"]
+[phases.setup]
+nixPkgs = ["nodejs_22"]
 
 [phases.build]
-cmds = ["npm run build"]
-# Pass the DATABASE_URL environment variable to the build phase
-dependsOn = ["setup", "install"]
+cmds = [
+  "npm ci",
+  "npx prisma generate",
+  "npm run build"
+]
 
 [start]
 cmd = "npm start"
